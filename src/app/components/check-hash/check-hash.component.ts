@@ -1,14 +1,14 @@
-import { Component } from '@angular/core';
-import { ProofService } from '../service/proof.service';
-import { MessageService } from '../service/message.service';
+import { Component, OnInit } from '@angular/core';
+import { ProofService } from '../../service/proof.service';
+import { MessageService } from '../../service/message.service';
 
 @Component({
   selector: 'check-hash',
-  providers: [ProofService, MessageService],
-  templateUrl: './check-hash.component.html'
+  templateUrl: './check-hash.component.html',
+  styleUrls: ['./check-hash.component.css']
 })
 
-export class CheckHashComponent {
+export class CheckHashComponent implements OnInit {
   hash: string = '';
   hashFound: boolean = false;
   data: Object;

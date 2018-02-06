@@ -23,11 +23,19 @@ export class ProofService {
   }
 
   checkHash(hash: string) {
+    // call getProofDetails to get response 
     return true;
   }
 
   getProofDetails(hash: string): Promise<Object> {
+    // return hash, array of party names, array of signed hashes, date and time Proof was posted
     return Promise.resolve(fakeData);
+  }
+
+  matchingInput(inputJson: JSON) {
+    //uses node-crypt to create a hash of input JSON
+    //return success if created and supplied hashes match
+    return true;
   }
 }
 

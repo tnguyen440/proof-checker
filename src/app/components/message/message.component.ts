@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { MessageService } from '../service/message.service';
+import { MessageService } from '../../service/message.service';
 
 @Component({
   selector: 'message',
-  templateUrl: './message.component.html'
+  templateUrl: './message.component.html',
+  styleUrls: ['./message.component.css']
 })
 export class MessageComponent {
   
