@@ -1,0 +1,26 @@
+<p><em>Enter a SHA256 hash and press the Check button</em></p>
+<div>
+  <input [(ngModel)]="hash">
+  <button (click)="checkHash()">Check</button>
+  <button [disabled]="!hashFound" (click)="checkInput()">Check Input</button>
+</div>
+<div *ngIf="hashFound">
+  <label>Date: 
+    <input value="{{ data.date }}">
+  </label>
+  <label>Time: 
+    <input value="{{ data.time }}">
+  </label>
+  <table>
+    <tr>
+      <td>Party</td>
+      <td>Signed hash</td>
+    </tr>
+    <tr *ngFor="let item of data.proofs"r>
+      <td><input value="{{ item.party }}"></td>
+      <td><input value="{{ item.signedHash }}"></td>
+    </tr>
+  </table>
+  <textarea name="textJson" id="" cols="30" rows="10">{{ data | json }}</textarea>
+</div>
+<message></message>
