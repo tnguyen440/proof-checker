@@ -4,4 +4,4 @@
 npm install
 ## Run 
 npm start
-The app is running on http://localhost:3000/
+### The app will be on http://localhost:3000/
