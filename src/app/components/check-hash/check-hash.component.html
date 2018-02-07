@@ -1,26 +1,47 @@
-<p><em>Enter a SHA256 hash and press the Check button</em></p>
-<div>
-  <input [(ngModel)]="hash">
-  <button (click)="checkHash()">Check</button>
-  <button [disabled]="!hashFound" (click)="checkInput()">Check Input</button>
+<div class="container">
+  <p><em>Enter a SHA256 hash and press the Check button</em></p>
+  <div class="hash">
+    <input class="hash__input" [(ngModel)]="hash">
+    <button class="hash__button" (click)="checkHash()">Check</button>
+    <button class="hash__button" [disabled]="!hashFound" (click)="checkInput()">Check Input</button>
+  </div>
+
+  <div *ngIf="true">
+    <!-- <label>Date: 
+      <input value="{{ data.date }}">
+    </label>
+    <label>Time: 
+      <input value="{{ data.time }}">
+    </label>
+    <table>
+      <tr>
+        <td>Party</td>
+        <td>Signed hash</td>
+      </tr>
+      <tr *ngFor="let item of data.proofs"r>
+        <td><input value="{{ item.party }}"></td>
+        <td><input value="{{ item.signedHash }}"></td>
+      </tr>
+    </table> -->
+    <div class="hash__details-datetime">
+      <div class="hash__details-date">Date: 
+        <input value="{{ data.date }}">
+      </div>
+      <div class="hash__details-time">Time: 
+        <input value="{{ data.time }}">
+      </div>
+    </div>
+
+    <div class="hash__details-infor" *ngFor="let item of data.proofs">
+        <div class="hash__details-party">
+          <input value="{{ item.party }}">
+        </div>
+        <div class="hash__details-hash">
+          <input value="{{ item.signedHash }}">
+        </div>
+    </div>
+
+    <textarea name="textJson" id="" cols="30" rows="10">{{ data | json }}</textarea>
+  </div>
+  <message></message>
 </div>
-<div *ngIf="hashFound">
-  <label>Date: 
-    <input value="{{ data.date }}">
-  </label>
-  <label>Time: 
-    <input value="{{ data.time }}">
-  </label>
-  <table>
-    <tr>
-      <td>Party</td>
-      <td>Signed hash</td>
-    </tr>
-    <tr *ngFor="let item of data.proofs"r>
-      <td><input value="{{ item.party }}"></td>
-      <td><input value="{{ item.signedHash }}"></td>
-    </tr>
-  </table>
-  <textarea name="textJson" id="" cols="30" rows="10">{{ data | json }}</textarea>
-</div>
-<message></message>
