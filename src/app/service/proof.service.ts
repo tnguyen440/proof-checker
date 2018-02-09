@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { fakeData } from '../mock-data';
+import fakeData  from '../mock-data';
 import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
+import { sha256 } from 'js-sha256';
 
 @Injectable()
 export class ProofService {
@@ -11,6 +12,7 @@ export class ProofService {
 
   getData(): Promise<Object> {
     // this.messageService.add('ProofService: fetched data');
+    // console.log(JSON.parse(fakeData));
     return Promise.resolve(fakeData);
   }
 
@@ -37,6 +39,11 @@ export class ProofService {
     //return success if created and supplied hashes match
     return true;
   }
+
+    hashInput() {
+      return sha256('');
+    }
+   
 }
 
 

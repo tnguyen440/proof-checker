@@ -1,0 +1,9 @@
+.tick:before {
+  content: "\2713";
+  color: green;
+}
+
+.source-hash,
+.proof-hash {
+  width: 80%;
+}

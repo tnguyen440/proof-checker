@@ -8,7 +8,7 @@ import { MessageComponent } from './components/message/message.component';
 const routes: Routes = [
   { path: '', redirectTo: '/check-hash', pathMatch: 'full' },
   { path: 'check-hash', component: CheckHashComponent },
-  { path: 'check-input', component: CheckInputComponent }
+  { path: 'check-input/:hash', component: CheckInputComponent }
 ];
 
 @NgModule({

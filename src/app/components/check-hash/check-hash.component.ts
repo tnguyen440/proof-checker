@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProofService } from '../../service/proof.service';
 import { MessageService } from '../../service/message.service';
 
@@ -11,10 +12,12 @@ import { MessageService } from '../../service/message.service';
 export class CheckHashComponent implements OnInit {
   hash: string = '';
   hashFound: boolean = false;
-  data: Object;
+  proofDetails: any;
+  data: any;
   fakeApiData: any;
 
   constructor(
+    private router: Router,
     private proofService: ProofService,
     private messageService: MessageService
   ) {}
@@ -29,7 +32,9 @@ export class CheckHashComponent implements OnInit {
   }
 
   checkHash() {
-    if(this.hash === this.data['hash']) {
+    this.proofDetails = this.data.find((item: any) => item.hash === this.hash);
+
+    if (this.proofDetails) {
       this.hashFound = true;
       this.messageService.clear();
     } else {
@@ -39,6 +44,9 @@ export class CheckHashComponent implements OnInit {
   }
 
   checkInput() {
-    console.log('check input')
+    // console.log('hash', this.hash)
+    if(this.hash && this.hashFound == true) {
+      this.router.navigate(['/check-input', this.hash]);
+    }
   }
 }
