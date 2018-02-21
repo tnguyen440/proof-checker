@@ -1,11 +1,11 @@
 module.exports = function(config) {
 
   var appBase    = 'src/';       // transpiled app JS and map files
-  var appSrcBase = appBase;      // app source TS files
+  var appAssets  = '/base/app/'; // component assets fetched by Angular's compiler
 
   // Testing helpers (optional) are conventionally in a folder called `testing`
-  var testingBase    = 'testing/'; // transpiled test JS and map files
-  var testingSrcBase = 'testing/'; // test source TS files
+  var testingBase    = 'src/testing/'; // transpiled test JS and map files
+  var testingSrcBase = 'src/testing/'; // test source TS files
 
   config.set({
     basePath: '',
@@ -50,6 +50,7 @@ module.exports = function(config) {
       // RxJs
       { pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false },
       { pattern: 'node_modules/rxjs/**/*.js.map', included: false, watched: false },
+      { pattern: 'node_modules/js-sha256/**/*.js', included: false, watched: false },
 
       // Paths loaded via module imports:
       // Angular itself
@@ -74,7 +75,7 @@ module.exports = function(config) {
       { pattern: appBase + '**/*.ts', included: false, watched: false },
       { pattern: appBase + '**/*.js.map', included: false, watched: false },
       { pattern: testingSrcBase + '**/*.ts', included: false, watched: false },
-      { pattern: testingBase + '**/*.js.map', included: false, watched: false}
+      { pattern: testingBase + '**/*.js.map', included: false, watched: false},
     ],
 
     // Proxied base paths for loading assets

@@ -1,6 +1,6 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { HttpModule }    from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -23,9 +23,9 @@ import { MessageService } from './service/message.service';
   ],
   declarations: [ 
     AppComponent,
+    MessageComponent,
     CheckHashComponent,
-    CheckInputComponent,
-    MessageComponent
+    CheckInputComponent
   ],
   providers: [ ProofService, MessageService ],
   bootstrap: [ AppComponent ]

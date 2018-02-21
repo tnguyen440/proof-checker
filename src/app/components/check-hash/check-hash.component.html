@@ -1,7 +1,7 @@
 <div class="container">
   <p><em>Enter a SHA256 hash and press the Check button</em></p>
   <div class="hash">
-    <input class="hash__input" [(ngModel)]="hash">
+    <input [(ngModel)]="hash" class="hash__input">
     <button class="hash__button" (click)="checkHash()">Check</button>
     <button class="hash__button" [disabled]="!hashFound" (click)="checkInput()">Check Input</button>
   </div>
@@ -27,5 +27,5 @@
 
     <textarea name="textJson" id="" cols="30" rows="10">{{ data | json }}</textarea>
   </div>
-  <message></message>
+  <div *ngIf="message">{{message}}</div>
 </div>
